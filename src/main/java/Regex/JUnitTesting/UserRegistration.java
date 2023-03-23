@@ -6,18 +6,18 @@ import java.util.Scanner;
 public class UserRegistration {
     public static void main(String[] args) {
                 Scanner scanner = new Scanner(System.in);
-                System.out.print("Enter your last name: ");
-                String lastName = scanner.nextLine();
+                System.out.print("Enter your email address: ");
+                String email = scanner.nextLine();
 
-                // Define regex pattern for last name validation
-                Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
+                // Define regex pattern for email validation
+                Pattern pattern = Pattern.compile("^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$");
 
                 // Match user input against regex pattern
-                Matcher matcher = pattern.matcher(lastName);
+                Matcher matcher = pattern.matcher(email);
                 if (matcher.matches()) {
-                    System.out.println("Valid last name");
+                    System.out.println("Valid email");
                 } else {
-                    System.out.println("Invalid last name");
+                    System.out.println("Invalid email");
                 }
             }
 }
