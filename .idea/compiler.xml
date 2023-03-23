@@ -9,5 +9,8 @@
         <module name="J_Unit_Testing" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="J Unit Testing" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
