@@ -9,7 +9,7 @@ public class UserRegistration {
         System.out.print("Enter your Password : ");
         String password = scanner.nextLine();
 
-        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
+        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=_\\-!¡?])(?=\\S+$).{8,}$");
         // Match user input against regex pattern
         Matcher matcher = pattern.matcher(password);
         if (matcher.matches()) {

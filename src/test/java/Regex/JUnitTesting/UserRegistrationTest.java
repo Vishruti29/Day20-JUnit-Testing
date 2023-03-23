@@ -22,7 +22,7 @@ public class UserRegistrationTest {
 
     private String validatePassword(String password) {
         // Define regex pattern for password validation
-        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
+        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=_\\-!¡?])(?=\\S+$).{8,}$");
 
         // Match user input against regex pattern
         Matcher matcher = pattern.matcher(password);
