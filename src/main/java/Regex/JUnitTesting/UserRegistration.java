@@ -6,16 +6,16 @@ import java.util.Scanner;
 public class UserRegistration {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter your mobile number : ");
-        String mobileNumber = scanner.nextLine();
-        //Regex Pattern for pre-defined mobile number
-        Pattern pattern = Pattern.compile("^\\d{2} \\d{10}$");
+        System.out.print("Enter your Password : ");
+        String password = scanner.nextLine();
+
+        Pattern pattern = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
         // Match user input against regex pattern
-        Matcher matcher = pattern.matcher(mobileNumber);
+        Matcher matcher = pattern.matcher(password);
         if (matcher.matches()) {
-            System.out.println("Valid mobile number");
+            System.out.println("Valid Password");
         } else {
-            System.out.println("Invalid mobile number");
+            System.out.println("Invalid Password");
         }
     }
 }
