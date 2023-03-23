@@ -5,31 +5,31 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class UserRegistrationTest {
     @Test
-    public void testValidNumber() {
-        String number = "91 7067181622";
-        String expected = "Valid number";
-        String actual = validateNumber(number);
+    public void testValidPassword() {
+        String password = "Garv123";
+        String expected = "Valid password";
+        String actual = validatePassword(password);
         assertEquals(expected, actual);
     }
 
     @Test
-    public void testInvalidNumber() {
-        String number = "1245 254";
-        String expected = "Invalid number";
-        String actual = validateNumber(number);
+    public void testInvalidPassword() {
+        String password = "garv1";
+        String expected = "Invalid password";
+        String actual = validatePassword(password);
         assertEquals(expected, actual);
     }
 
-    private String validateNumber(String number) {
-        // Define regex pattern for email validation
-        Pattern pattern = Pattern.compile("^\\d{2} \\d{10}$");
+    private String validatePassword(String password) {
+        // Define regex pattern for password validation
+        Pattern pattern = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
 
         // Match user input against regex pattern
-        Matcher matcher = pattern.matcher(number);
+        Matcher matcher = pattern.matcher(password);
         if (matcher.matches()) {
-            return "Valid mobile number";
+            return "Valid password";
         } else {
-            return "Invalid mobile number";
+            return "Invalid password";
         }
     }
 }
