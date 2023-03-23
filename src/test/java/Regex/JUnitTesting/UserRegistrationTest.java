@@ -5,31 +5,31 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class UserRegistrationTest {
     @Test
-    public void testValidLastName() {
-        String lastName = "Patil";
-        String expected = "Valid last name";
-        String actual = validateLastName(lastName);
+    public void testValidEmail() {
+        String email = "test@example.com";
+        String expected = "Valid email";
+        String actual = validateEmail(email);
         assertEquals(expected, actual);
     }
 
     @Test
-    public void testInvalidLastName() {
-        String lastName = "patil";
-        String expected = "Invalid last name";
-        String actual = validateLastName(lastName);
+    public void testInvalidEmail() {
+        String email = "invalid-email@.com";
+        String expected = "Invalid email";
+        String actual = validateEmail(email);
         assertEquals(expected, actual);
     }
 
-    private String validateLastName(String lastName) {
-        // Define regex pattern for last name validation
-        Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
+    private String validateEmail(String email) {
+        // Define regex pattern for email validation
+        Pattern pattern = Pattern.compile("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$");
 
         // Match user input against regex pattern
-        Matcher matcher = pattern.matcher(lastName);
+        Matcher matcher = pattern.matcher(email);
         if (matcher.matches()) {
-            return "Valid last name";
+            return "Valid email";
         } else {
-            return "Invalid last name";
+            return "Invalid email";
         }
     }
 }
