@@ -5,31 +5,31 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class UserRegistrationTest {
     @Test
-    public void testValidFirstName() {
-        String firstName = "Garv";
-        String expected = "Valid first name";
-        String actual = validateFirstName(firstName);
+    public void testValidLastName() {
+        String lastName = "Patil";
+        String expected = "Valid last name";
+        String actual = validateLastName(lastName);
         assertEquals(expected, actual);
     }
 
     @Test
-    public void testInvalidFirstName() {
-        String firstName = "garv";
-        String expected = "Invalid first name";
-        String actual = validateFirstName(firstName);
+    public void testInvalidLastName() {
+        String lastName = "patil";
+        String expected = "Invalid last name";
+        String actual = validateLastName(lastName);
         assertEquals(expected, actual);
     }
 
-    private String validateFirstName(String firstName) {
-        // Define regex pattern for first name validation
+    private String validateLastName(String lastName) {
+        // Define regex pattern for last name validation
         Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
 
         // Match user input against regex pattern
-        Matcher matcher = pattern.matcher(firstName);
+        Matcher matcher = pattern.matcher(lastName);
         if (matcher.matches()) {
-            return "Valid first name";
+            return "Valid last name";
         } else {
-            return "Invalid first name";
+            return "Invalid last name";
         }
     }
 }
