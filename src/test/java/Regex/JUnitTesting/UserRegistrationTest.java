@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class UserRegistrationTest {
     @Test
     public void testValidPassword() {
-        String password = "Garv123";
+        String password = "Garv@1234";
         String expected = "Valid password";
         String actual = validatePassword(password);
         assertEquals(expected, actual);
