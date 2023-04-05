@@ -8,7 +8,7 @@ public class EmailValidation {
         System.out.print("Enter email address : ");
         String email = scanner.nextLine();
 
-        Pattern pattern = Pattern.compile("^(?i)(?=.{1,64}@.{1,255}$)(?=[^@]*[a-z])(?=[^@]*[0-9])(?!.*[.]{2})(?!.*[@]{2})[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}(\\.[a-z]{2,})?$");
+        Pattern pattern = Pattern.compile("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$");
         // Match user input against regex pattern
         Matcher matcher = pattern.matcher(email);
         if (matcher.matches()) {
