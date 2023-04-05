@@ -1,35 +1,32 @@
 package Regex.JUnitTesting;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 public class UserRegistrationTest {
     @Test
-    public void testValidPassword() {
-        String password = "Garv@1234";
-        String expected = "Valid password";
-        String actual = validatePassword(password);
-        assertEquals(expected, actual);
+    public void testValidateFirstName() {
+        Assertions.assertTrue(UserRegistration.validateFirstName("Garv"));
+        Assertions.assertFalse(UserRegistration.validateFirstName("gaRV"));
+    }
+    @Test
+    public void testValidateLastName() {
+        Assertions.assertTrue(UserRegistration.validateLastName("Patil"));
+        Assertions.assertFalse(UserRegistration.validateLastName("paTil"));
     }
 
     @Test
-    public void testInvalidPassword() {
-        String password = "garv1";
-        String expected = "Invalid password";
-        String actual = validatePassword(password);
-        assertEquals(expected, actual);
+    public void testValidateEmail() {
+        Assertions.assertTrue(UserRegistration.validateEmail("garv.patil24@gmail.com"));
+        Assertions.assertFalse(UserRegistration.validateEmail("GARv29@.com"));
     }
-
-    private String validatePassword(String password) {
-        // Define regex pattern for password validation
-        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=_\\-!¡?])(?=\\S+$).{8,}$");
-
-        // Match user input against regex pattern
-        Matcher matcher = pattern.matcher(password);
-        if (matcher.matches()) {
-            return "Valid password";
-        } else {
-            return "Invalid password";
-        }
+    @Test
+    public void testValidateMobileNumber() {
+        Assertions.assertTrue(UserRegistration.validateMobileNumber("9876543210"));
+        Assertions.assertFalse(UserRegistration.validateMobileNumber("98765432"));
+    }
+    @Test
+    public void testValidatePassword() {
+        // Valid passwords
+        Assertions.assertTrue(UserRegistration.validatePassword("Garv1234@"));
+        Assertions.assertFalse(UserRegistration.validatePassword("garv1234"));
     }
 }
